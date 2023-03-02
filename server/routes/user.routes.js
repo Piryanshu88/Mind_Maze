@@ -103,6 +103,22 @@ userRouter.get("/all-users/:id", async (req, res) => {
     }
   });
 
+  userRouter.delete("/delete/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+      const users = await UserModel.findByIdAndDelete({ _id: id });
+      res.status(201).json({
+        status: "success",
+        message: "User delted Successfully",
+      });
+    } catch (error) {
+      console.log(error);
+      return res
+        .status(500)
+        .json({ message: "Something went wrong", status: "error" });
+    }
+  });
+
 module.exports = {
   userRouter,
 };

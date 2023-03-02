@@ -88,36 +88,52 @@ userRouter.get("/all-users", async (req, res) => {
 });
 
 userRouter.get("/all-users/:id", async (req, res) => {
-    const { id } = req.params;
-    try {
-      const users = await UserModel.find({ _id: id });
-      res.status(201).json({
-        status: "success",
-        data: users,
-      });
-    } catch (error) {
-      console.log(error);
-      return res
-        .status(500)
-        .json({ message: "Something went wrong", status: "error" });
-    }
-  });
+  const { id } = req.params;
+  try {
+    const users = await UserModel.find({ _id: id });
+    res.status(201).json({
+      status: "success",
+      data: users,
+    });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json({ message: "Something went wrong", status: "error" });
+  }
+});
 
-  userRouter.delete("/delete/:id", async (req, res) => {
-    const { id } = req.params;
-    try {
-      const users = await UserModel.findByIdAndDelete({ _id: id });
-      res.status(201).json({
-        status: "success",
-        message: "User delted Successfully",
-      });
-    } catch (error) {
-      console.log(error);
-      return res
-        .status(500)
-        .json({ message: "Something went wrong", status: "error" });
-    }
-  });
+userRouter.delete("/delete/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const users = await UserModel.findByIdAndDelete({ _id: id });
+    res.status(201).json({
+      status: "success",
+      message: "User delted Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json({ message: "Something went wrong", status: "error" });
+  }
+});
+
+userRouter.patch("/update/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const users = await UserModel.findByIdAndUpdate({ _id: id }, req.body);
+    res.status(201).json({
+      status: "success",
+      message: "User data updated Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json({ message: "Something went wrong", status: "error" });
+  }
+});
 
 module.exports = {
   userRouter,

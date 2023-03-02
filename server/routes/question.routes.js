@@ -3,15 +3,57 @@ const { QuestionModel } = require("../model/question.model");
 const questionRouter = express.Router();
 
 questionRouter.get("/", async (req, res) => {
+  const category = req.query.category;
+  const page = Math.max(0, req.query.page);
+  const limit = req.query.limit || 1;
   try {
-    const users = await QuestionModel.find();
-    const userLength = await QuestionModel.find().count();
-    res.status(201).json({
-      status: "success",
-      data: users,
-      userId: req.body.authorID,
-      totalCount: userLength,
-    });
+    if (category && page) {
+      const users = await QuestionModel.find({ category: category })
+        .limit(limit)
+        .skip(limit * page);
+      const userLength = await QuestionModel.find({
+        category: category,
+      }).count();
+      res.status(201).json({
+        status: "success",
+        data: users,
+        userId: req.body.authorID,
+        totalCount: userLength,
+      });
+    } else if (category) {
+      const users = await QuestionModel.find({ category: category }).limit(
+        limit
+      );
+      const userLength = await QuestionModel.find({
+        category: category,
+      }).count();
+      res.status(201).json({
+        status: "success",
+        data: users,
+        userId: req.body.authorID,
+        totalCount: userLength,
+      });
+    } else if (page) {
+      const users = await QuestionModel.find()
+        .limit(limit)
+        .skip(page * limit);
+      const userLength = await QuestionModel.find().count();
+      res.status(201).json({
+        status: "success",
+        data: users,
+        userId: req.body.authorID,
+        totalCount: userLength,
+      });
+    } else {
+      const users = await QuestionModel.find();
+      const userLength = await QuestionModel.find().count();
+      res.status(201).json({
+        status: "success",
+        data: users,
+        userId: req.body.authorID,
+        totalCount: userLength,
+      });
+    }
   } catch (error) {
     return res
       .status(500)

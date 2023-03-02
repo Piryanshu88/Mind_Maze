@@ -4,6 +4,7 @@ require("dotenv").config();
 const cors = require("cors");
 const { connection } = require("./config/db");
 const { userRouter } = require("./routes/user.routes");
+const { questionRouter } = require("./routes/question.routes");
 
 const app = express();
 
@@ -20,6 +21,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/user", userRouter);
+
+app.use("/questions", questionRouter);
 
 app.listen(8080, async () => {
   try {

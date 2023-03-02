@@ -9,6 +9,7 @@ questionRouter.get("/", async (req, res) => {
     res.status(201).json({
       status: "success",
       data: users,
+      userId: req.body.authorID,
       totalCount: userLength,
     });
   } catch (error) {
@@ -84,4 +85,4 @@ questionRouter.delete("/delete/:id", async (req, res) => {
 
 module.exports = {
   questionRouter,
-}
+};

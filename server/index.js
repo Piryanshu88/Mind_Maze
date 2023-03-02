@@ -5,6 +5,7 @@ const cors = require("cors");
 const { connection } = require("./config/db");
 const { userRouter } = require("./routes/user.routes");
 const { questionRouter } = require("./routes/question.routes");
+const { authenticate } = require("./middlewares/auth.middlewares");
 
 const app = express();
 
@@ -22,7 +23,7 @@ app.get("/", (req, res) => {
 
 app.use("/user", userRouter);
 
-app.use("/questions", questionRouter);
+app.use("/questions", authenticate, questionRouter);
 
 app.listen(8080, async () => {
   try {

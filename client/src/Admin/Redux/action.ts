@@ -7,6 +7,7 @@ interface userData {
   status: string;
 }
 
+
 interface options {
   opt1: string;
   check: boolean;

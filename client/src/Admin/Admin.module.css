@@ -14,6 +14,9 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border-radius: 30px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 .admin_box_right {
   flex: 3;
@@ -31,5 +34,4 @@
   background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
   font-size: 30px;
   border-radius: 20px;
-  margin-bottom: 20px;
 }

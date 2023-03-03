@@ -1,0 +1,35 @@
+.user_box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.user_box_row {
+  border-radius: 20px;
+  display: flex;
+  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  padding: 10px 15px 10px 15px;
+  font-size: 20px;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+.user_box_row > div {
+  flex: 1;
+}
+.user_box_row > div:nth-child(5) {
+  align-items: center;
+  text-align: center;
+}
+.user_box_headings {
+  font-weight: 600;
+}
+
+@media all and (min-width: 640px) and (max-width: 1024px) {
+  .user_box_row > :nth-child(3) {
+    border: 2px solid red;
+    display: none;
+  }
+}
+
+@media all and (min-width: 324px) and (max-width: 640px) {
+}

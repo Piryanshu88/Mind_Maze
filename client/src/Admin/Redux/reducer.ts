@@ -1,17 +1,37 @@
 import * as types from "./actionTypes";
-const initialState = {
+
+export interface State {
+  loading: boolean;
+  isLoggedIn: boolean;
+  error: boolean;
+  user: object[];
+}
+
+const initialState: State = {
   loading: false,
   isLoggedIn: false,
   error: false,
   user: [],
 };
 
+export interface users {
+  firstName: string;
+  lastName: string;
+  points: number;
+  email: string;
+  password: string;
+}
+export interface Payload {
+  data: users[];
+  status: string;
+}
 interface Action {
   type: string;
-  payload?: object;
+  payload: Payload;
 }
 
 const reducer = (state = initialState, { type, payload }: Action) => {
+  console.log(type, payload);
   switch (type) {
     case types.GET_DATA_REQ:
       return {

@@ -3,6 +3,8 @@ import styles from "../Home/Home.module.css";
 import { Center, Heading } from "@chakra-ui/react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import img1 from "../../assets/Begin black.png"
+import img2 from "../../assets/Begin green.png"
 
 export const Home = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -34,8 +36,8 @@ export const Home = () => {
                   className={styles.begin}
                   src={
                     isHovering
-                      ? "https://github.com/shubhamkr2/UploadImages/blob/main/Screenshot__1624_-removebg-preview.png?raw=true"
-                      : "https://github.com/shubhamkr2/UploadImages/blob/main/Screenshot__1626_-removebg-preview.png?raw=true"
+                      ?img1
+                      :img2
                   }
                   alt="begin"
                   onMouseEnter={handleMouseEnter}
@@ -69,8 +71,8 @@ export const Home = () => {
                   className={styles.begin}
                   src={
                     isHovering
-                      ? "https://github.com/shubhamkr2/UploadImages/blob/main/Screenshot__1624_-removebg-preview.png?raw=true"
-                      : "https://github.com/shubhamkr2/UploadImages/blob/main/Screenshot__1626_-removebg-preview.png?raw=true"
+                    ? img1
+                    : img2
                   }
                   alt="begin"
                   onMouseEnter={handleMouseEnter}
@@ -106,8 +108,8 @@ export const Home = () => {
                   className={styles.begin}
                   src={
                     isHovering
-                      ? "https://github.com/shubhamkr2/UploadImages/blob/main/Screenshot__1624_-removebg-preview.png?raw=true"
-                      : "https://github.com/shubhamkr2/UploadImages/blob/main/Screenshot__1626_-removebg-preview.png?raw=true"
+                    ? img1
+                    : img2
                   }
                   alt="begin"
                   onMouseEnter={handleMouseEnter}

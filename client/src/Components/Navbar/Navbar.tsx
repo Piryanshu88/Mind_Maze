@@ -35,11 +35,13 @@ function Navbar() {
           <HStack spacing={8} alignItems={"center"}>
 
             {/*************************** Logo *******************************/}
-            <Link to="/">Logo</Link>
+            <Link  to="/">Logo</Link>
             <HStack
               as={"nav"}
               spacing={4}
               display={{ base: "none", md: "flex" }}
+              fontSize={"20px"}
+              fontWeight={600}
             >
               <Link to="/">Home</Link>
               <Link to="/">Leaderboard</Link>

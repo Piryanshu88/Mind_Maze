@@ -3,16 +3,17 @@ import styles from "../Home/Home.module.css";
 import { Center, Heading } from "@chakra-ui/react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import img1 from "../../assets/Begin black.png"
-import img2 from "../../assets/Begin green.png"
+import img1 from "../../assets/Begin black.png";
+import img2 from "../../assets/Begin green.png";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const [isHovering, setIsHovering] = useState(false);
 
-  useEffect(()=>{
-    AOS.init({delay:50});
-  },[]);
-  
+  useEffect(() => {
+    AOS.init({ delay: 50 });
+  }, []);
+
   const handleMouseEnter = () => {
     setIsHovering(true);
   };
@@ -22,7 +23,7 @@ export const Home = () => {
   };
   return (
     <div className={styles.container}>
-      <Heading style={{textAlign:"center"}}>Welcome to Game Name</Heading>
+      <Heading style={{ textAlign: "center" }}>Welcome to Game Name</Heading>
 
       {/* slider */}
       <div className={styles.slider_container}>
@@ -31,18 +32,17 @@ export const Home = () => {
             {/*********************************** 1st slide *****************************/}
             <div id="slides__1" className={styles.slide}>
               {/************** 1st slide begin button *******************/}
+
               <div data-aos="zoom-in-up" className={styles.begainContainer}>
-                <img
-                  className={styles.begin}
-                  src={
-                    isHovering
-                      ?img1
-                      :img2
-                  }
-                  alt="begin"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                />
+                <Link to="/room/anime">
+                  <img
+                    className={styles.begin}
+                    src={isHovering ? img1 : img2}
+                    alt="begin"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  />
+                </Link>
               </div>
               {/*  */}
 
@@ -67,17 +67,15 @@ export const Home = () => {
             <div id="slides__2" className={styles.slide}>
               {/************** 2nd slide begin button *******************/}
               <div data-aos="zoom-in-up" className={styles.begainContainer}>
-                <img
-                  className={styles.begin}
-                  src={
-                    isHovering
-                    ? img1
-                    : img2
-                  }
-                  alt="begin"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                />
+                <Link to="/room/education">
+                  <img
+                    className={styles.begin}
+                    src={isHovering ? img1 : img2}
+                    alt="begin"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  />
+                </Link>
               </div>
               {/*  */}
 
@@ -106,11 +104,7 @@ export const Home = () => {
               <div data-aos="zoom-in-up" className={styles.begainContainer}>
                 <img
                   className={styles.begin}
-                  src={
-                    isHovering
-                    ? img1
-                    : img2
-                  }
+                  src={isHovering ? img1 : img2}
                   alt="begin"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}

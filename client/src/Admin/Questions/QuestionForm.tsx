@@ -27,7 +27,7 @@ export const QuestionForm = () => {
 
   return (
     <div>
-      <FormControl onSubmit={handleClick}>
+      <FormControl onSubmit={handleClick}  >
         <Input
           type="text"
           variant={"flushed"}

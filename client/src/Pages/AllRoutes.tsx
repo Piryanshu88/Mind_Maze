@@ -14,8 +14,8 @@ export const AllRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/admin" element={<Admin />} />
-      <Route path="/room" element={<Room/>} />
-      <Route path="/leaderboard" element={<Leaderboard/>}/>
+      <Route path="/room/:category" element={<Room />} />
+      <Route path="/leaderboard" element={<Leaderboard />} />
     </Routes>
   );
 };

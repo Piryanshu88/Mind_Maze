@@ -19,11 +19,16 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
 function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [isLogedIn, setIsLogedIn] = useState(true); // for profile picture
+  const [isLogedIn, setIsLogedIn] = useState(
+    localStorage.getItem("isauth") == "true" ? true : false
+  ); // for profile picture
 
   return (
     <>
-      <Box bgGradient='linear-gradient(120deg, #F6D365 0%, #FDA085 100%)' px={4}>
+      <Box
+        bgGradient="linear-gradient(120deg, #F6D365 0%, #FDA085 100%)"
+        px={4}
+      >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
             size={"md"}
@@ -33,9 +38,8 @@ function Navbar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={"center"}>
-
             {/*************************** Logo *******************************/}
-            <Link  to="/">Logo</Link>
+            <Link to="/">Logo</Link>
             <HStack
               as={"nav"}
               spacing={4}
@@ -44,7 +48,7 @@ function Navbar() {
               fontWeight={600}
             >
               <Link to="/">Home</Link>
-              <Link to="/">Leaderboard</Link>
+              <Link to="/leaderboard">Leaderboard</Link>
               <Link to="/">High Score</Link>
             </HStack>
           </HStack>
@@ -52,34 +56,40 @@ function Navbar() {
           {/**************** Showion Avatar if Logedin **************/}
           <Flex alignItems={"center"}>
             {isLogedIn ? (
-              
-                <Menu>
-              <MenuButton
-                as={Button}
-                rounded={"full"}
-                variant={"link"}
-                cursor={"pointer"}
-                minW={0}
-              >
-                {/**************  Avatar Url  ************/}
-                <Avatar
-                  size={"sm"}
-                  src={
-                    "https://github.com/shubhamkr2/UploadImages/blob/main/avatardefault_92824.png?raw=true"
-                  }
-                />
-              </MenuButton>
-              <MenuList>
-                <Link to="#"><MenuItem>Profile</MenuItem></Link>
-                <MenuDivider />
-                <Link to="#"><MenuItem>Sign Out</MenuItem></Link>
-              </MenuList>
-            </Menu> 
-              
+              <Menu>
+                <MenuButton
+                  as={Button}
+                  rounded={"full"}
+                  variant={"link"}
+                  cursor={"pointer"}
+                  minW={0}
+                >
+                  {/**************  Avatar Url  ************/}
+                  <Avatar
+                    size={"sm"}
+                    src={
+                      "https://github.com/shubhamkr2/UploadImages/blob/main/avatardefault_92824.png?raw=true"
+                    }
+                  />
+                </MenuButton>
+                <MenuList>
+                  <Link to="#">
+                    <MenuItem>Profile</MenuItem>
+                  </Link>
+                  <MenuDivider />
+                  <Link to="#">
+                    <MenuItem>Sign Out</MenuItem>
+                  </Link>
+                </MenuList>
+              </Menu>
             ) : (
               <>
-                <Link to="#"><Button>Sign In</Button></Link>
-                <Link to="#"><Button ml="5px">Register</Button></Link>
+                <Link to="/login">
+                  <Button>Sign In</Button>
+                </Link>
+                <Link to="/register">
+                  <Button ml="5px">Register</Button>
+                </Link>
               </>
             )}
           </Flex>
@@ -89,7 +99,7 @@ function Navbar() {
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
               <Link to="/">Home</Link>
-              <Link to="/">Leaderboard</Link>
+              <Link to="/leaderboard">Leaderboard</Link>
               <Link to="/">High Score</Link>
             </Stack>
           </Box>

@@ -35,3 +35,12 @@
   font-size: 30px;
   border-radius: 20px;
 }
+
+@media all and (min-width: 640px) and (max-width: 1024px) {
+  .admin_box_left {
+    display: none;
+  }
+}
+
+@media all and (min-width: 324px) and (max-width: 640px) {
+}

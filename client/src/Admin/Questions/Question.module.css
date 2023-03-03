@@ -1,0 +1,12 @@
+.questions_box_1 {
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  background: linear-gradient(120deg, #fda085 0%, #f6d365 100%);
+}
+.questions_box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

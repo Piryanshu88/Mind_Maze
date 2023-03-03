@@ -7,6 +7,25 @@ interface userData {
   status: string;
 }
 
+
+interface options {
+  opt1: string;
+  check: boolean;
+}
+export interface questions {
+  _id?: string;
+  questionName: string;
+  category: string;
+  level: string;
+  options: options[];
+  marks: number;
+}
+export interface QuestionsPayload {
+  data: questions[];
+  status: string;
+  userId?: string;
+  totalCount?: number;
+}
 export let userDataRequest = () => {
   return {
     type: types.GET_DATA_REQ,
@@ -34,4 +53,17 @@ let getDataUser = async () => {
   return response.data;
 };
 
-export { getDataUser };
+let getQuestionData = async (page: number = 0) => {
+  const response: AxiosResponse<QuestionsPayload> = await axios(
+    `https://lazy-tan-shrimp-tux.cyclic.app/questions?page=${page}&limit=5`,
+    {
+      headers: {
+        Authorization:
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDAwYTk3MWNjODA3OGQ2MmIzNTBjMzAiLCJpYXQiOjE2Nzc4NTM5MDh9.Z01xlf3efXY-dXwozcxHUyvIwGhDz13k-ZX2J22XTIs",
+      },
+    }
+  );
+  return response.data;
+};
+
+export { getDataUser, getQuestionData };

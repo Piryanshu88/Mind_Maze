@@ -17,6 +17,7 @@ const initialState: State = {
 export interface users {
   firstName: string;
   lastName: string;
+  _id: string;
   points: number;
   email: string;
   password: string;

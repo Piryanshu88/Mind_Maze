@@ -25,7 +25,7 @@ app.use("/user", userRouter);
 
 app.use("/questions", authenticate, questionRouter);
 
-app.listen(8080, async () => {
+app.listen(process.env.port, async () => {
   try {
     await connection;
     console.log(`server running at port ${process.env.port}`);

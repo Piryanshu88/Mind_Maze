@@ -4,8 +4,6 @@ import "./App.css";
 import { Navbar } from "./Components/Navbar/Navbar";
 import { AllRoutes } from "./Pages/AllRoutes";
 
-import { Home } from "./Components/Home/Home";
-
 function App() {
   const [count, setCount] = useState(0);
 

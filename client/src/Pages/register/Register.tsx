@@ -21,7 +21,7 @@ const Register = () => {
     
     try {
       setLoading(true);
-      fetch(`https://lazy-tan-shrimp-tux.cyclic.app/register`, {
+      fetch(`https://lazy-tan-shrimp-tux.cyclic.app/user/register`, {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {
@@ -72,7 +72,7 @@ const Register = () => {
           style={{ padding: "10px" }}
           type="email"
           placeholder="Enter Your Email"
-          onChange={(e) => setLname(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />{" "}
         {/* <p className={styles.headingsOfInputs}>Your Password</p> */}
         <input

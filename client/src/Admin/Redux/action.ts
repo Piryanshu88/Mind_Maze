@@ -6,6 +6,7 @@ interface userData {
   data: object[];
   status: string;
 }
+
 export let userDataRequest = () => {
   return {
     type: types.GET_DATA_REQ,

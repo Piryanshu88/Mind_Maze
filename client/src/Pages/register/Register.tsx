@@ -1,55 +1,89 @@
 import react from "react";
 import styles from "./Register.module.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-const Register = () => {
-  const [loading, setLoading] = useState(false);
-  const [firstName, setFname] = useState("");
-  const [lastName, setLname] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const navigate = useNavigate();
+import React from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { useToast } from '@chakra-ui/react'
 
-  const handleRegister = () => {
+
+const Register = () => {
+  const Navigate = useNavigate()
+  const toast = useToast()
+
+  const [email, setEmail] = useState("")
+  const [firstName, setFirstName] = useState("")
+  const [lastName, setLastName] = useState("")
+  const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
+
+  const handelregister = () => {
     const payload = {
+
       firstName,
       lastName,
-      password,
       email,
-    };
-    console.log(payload);
-    
-    try {
-      setLoading(true);
-      fetch(`https://lazy-tan-shrimp-tux.cyclic.app/register`, {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: {
-          "Content-type": "application/json",
-        },
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          if (res.success) {
-            alert("Register");
-            navigate("/login");
-            console.log(res);
-          } else {
-            alert(res.message);
-          }
-        });
-    } catch (err) {
-      console.log(err);
-      alert("Something Wrong");
+      password,
+
     }
-  };
 
-  const handleLogin = () => {
-    navigate("/login");
-  };
+    console.log(payload)
 
+    if (firstName === "" || lastName === "" || email === "" || password === "") {
+      toast({
+        position: 'top',
+        variant: 'top-accent',
+        title: 'Missing information',
+        description: `Please enter all mandatory fields`,
+        status: 'warning',
+        duration: 5000,
+        isClosable: true
+      })
+    } else {
+      try {
+        setLoading(true)
+        fetch(`https://lazy-tan-shrimp-tux.cyclic.app/user/register`, {
+          method: "POST",
+          body: JSON.stringify(payload),
+          headers: {
+            "Content-type": "application/json"
+          }
+        }).then((res) => res.json())
+        toast({
+          position: 'top',
+          variant: 'top-accent',
+          title: 'Register successful',
+          description: `Your account has been created ${firstName}`,
+          status: 'success',
+          duration: 5000,
+          isClosable: true
+        })
+        Navigate('/login')
+        setLoading(false)
+
+      } catch (err) {
+        console.log(err)
+        setLoading(false)
+        toast({
+          position: 'top',
+          variant: 'top-accent',
+          title: 'Error',
+          description: 'Something went wrong please try again',
+          status: 'error',
+          duration: 5000,
+          isClosable: true
+        })
+      }
+    }
+
+  }
+  const loginfunc=()=>{
+    Navigate('/login')
+
+  }
   return (
     <>
+        <div className={styles.impcontainer}>
+
       <div className={styles.cover}>
         <h2 style={{ fontWeight: "bold", fontSize: "25px" }}>REGISTER</h2>
         <br />
@@ -58,21 +92,21 @@ const Register = () => {
           style={{ padding: "10px" }}
           type="text"
           placeholder="First Name"
-          onChange={(e) => setFname(e.target.value)}
+          onChange={(e) => setFirstName(e.target.value)}
         />
         {/* <p className={styles.headingsOfInputs}>Last Name</p> */}
         <input
           style={{ padding: "10px" }}
           type="text"
           placeholder="Last Name"
-          onChange={(e) => setLname(e.target.value)}
+          onChange={(e) => setLastName(e.target.value)}
         />
         {/* <p className={styles.headingsOfInputs}>Your Email</p> */}
         <input
           style={{ padding: "10px" }}
           type="email"
           placeholder="Enter Your Email"
-          onChange={(e) => setLname(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />{" "}
         {/* <p className={styles.headingsOfInputs}>Your Password</p> */}
         <input
@@ -82,7 +116,7 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <br />
-        <button className={styles.buttonOlogin} onClick={handleRegister}>
+        <button className={styles.buttonOlogin} onClick={handelregister}>
           CREATE ACCOUNT
         </button>
         <br />
@@ -100,9 +134,10 @@ const Register = () => {
           AllREADY HAVE AN ACCOUNT ?
         </p>
         <br />
-        <button className={styles.buttonOlogin} onClick={handleLogin}>
+        <button className={styles.buttonOlogin} onClick={loginfunc}>
           LOGIN
         </button>
+      </div>
       </div>
     </>
   );

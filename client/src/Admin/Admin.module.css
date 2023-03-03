@@ -36,11 +36,26 @@
   border-radius: 20px;
 }
 
-@media all and (min-width: 640px) and (max-width: 1024px) {
-  .admin_box_left {
-    display: none;
+@media all and (min-width: 740px) and (max-width: 1024px) {
+  .admin_box {
+    flex-direction: column;
   }
 }
 
-@media all and (min-width: 324px) and (max-width: 640px) {
+@media all and (min-width: 324px) and (max-width: 740px) {
+  .admin_box {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .admin_box_right {
+    flex: 1;
+    padding: 10px;
+  }
+  .admin_box_left > div {
+    font-size: 20px;
+  }
+  .admin_box {
+    margin: 8px;
+    padding: 10px;
+  }
 }

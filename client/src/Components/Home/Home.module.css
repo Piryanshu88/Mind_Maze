@@ -1,6 +1,22 @@
 .container {
-  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  background-image: linear-gradient(120deg,rgb(27, 184, 27), #f6d365, #fda085, rgb(15, 150, 228) );
   padding-top: 40px;
+  animation: gradient 10s ease infinite;
+  overflow-y: hidden;
+  background-size: 300% 300%;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .begin {
   cursor: pointer;

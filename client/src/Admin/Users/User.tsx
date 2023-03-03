@@ -26,7 +26,7 @@ export const User = () => {
     getDataUser().then((re: Payload) =>
       setData(re.data.sort((a, b) => b.points - a.points))
     );
-  }, []);
+  }, [userdata]);
   return (
     <div className={styles.user_box}>
       <div className={styles.user_box_row}>

@@ -26,14 +26,12 @@
 
 @media all and (min-width: 640px) and (max-width: 1024px) {
   .user_box_row > :nth-child(3) {
-    border: 2px solid red;
     display: none;
   }
 }
 
 @media all and (min-width: 324px) and (max-width: 640px) {
   .user_box_row > :nth-child(3) {
-    border: 2px solid red;
     display: none;
   }
   .user_box_row > :nth-child(4) {

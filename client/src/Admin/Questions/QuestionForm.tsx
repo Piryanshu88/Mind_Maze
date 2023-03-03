@@ -10,27 +10,35 @@ import {
 import React, { useState } from "react";
 
 export const QuestionForm = () => {
+  const [options, setoptions] = useState();
+  const [opt1, setopt1] = useState({
+    opt: "",
+    checked: false,
+  });
   const [questions, setQuestion] = useState({
     questionName: "",
     category: "",
     level: "",
-    options: "",
+    options: options,
     marks: 0,
   });
-  const [options, setoptions] = useState([]);
+  const handleClick = () => {};
+
   return (
     <div>
-      <FormControl>
+      <FormControl onSubmit={handleClick}>
         <Input
           type="text"
           variant={"flushed"}
           placeholder="Question here"
           marginBottom={"20px"}
+          value={questions.questionName}
         />
         <Select
           marginBottom={"20px"}
           placeholder="Select Category"
           variant={"flushed"}
+          value={questions.category}
           color="gray.500"
         >
           <option value="anime">Anime</option>
@@ -38,6 +46,7 @@ export const QuestionForm = () => {
           <option value="gk">General knowledge</option>
         </Select>
         <Select
+          value={questions.level}
           marginBottom={"20px"}
           placeholder="Select level"
           variant={"flushed"}
@@ -74,12 +83,13 @@ export const QuestionForm = () => {
           marginBottom={"20px"}
         />
         <Input
-          type="text"
+          type="number"
+          value={questions.marks}
           variant={"flushed"}
           placeholder="Points"
           marginBottom={"20px"}
         />
-        <Button colorScheme="orange" width={"100%"}>
+        <Button colorScheme="orange" width={"100%"} type="submit">
           Submit
         </Button>
       </FormControl>

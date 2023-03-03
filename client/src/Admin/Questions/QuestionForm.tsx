@@ -11,6 +11,7 @@ import React, { useState } from "react";
 
 export const QuestionForm = () => {
   const [options, setoptions] = useState();
+  
   const [opt1, setopt1] = useState({
     opt: "",
     checked: false,

@@ -20,7 +20,7 @@ export const Home = () => {
   };
   return (
     <div className={styles.container}>
-      <Heading align="center" >Welcome to Game Name</Heading>
+      <Heading align="center">Welcome to Game Name</Heading>
 
       {/* slider */}
       <div className={styles.slider_container}>

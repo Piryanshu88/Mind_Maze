@@ -1,1 +1,35 @@
-.
+.admin_box {
+  margin: 20px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  gap: 30px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.admin_box_left {
+  flex: 1;
+  background: #f6d365;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 30px;
+  padding: 20px;
+}
+.admin_box_right {
+  flex: 3;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 30px;
+  background: #f6d365;
+  padding: 20px;
+}
+.admin_box_left > div {
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px;
+  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  font-size: 30px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}

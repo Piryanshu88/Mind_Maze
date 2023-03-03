@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "../Home/Home.module.css";
-import { Heading } from "@chakra-ui/react";
+import { Center, Heading } from "@chakra-ui/react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -20,7 +20,7 @@ export const Home = () => {
   };
   return (
     <div className={styles.container}>
-      <Heading>Welcome to Game Name</Heading>
+      <Heading align="center" >Welcome to Game Name</Heading>
 
       {/* slider */}
       <div className={styles.slider_container}>

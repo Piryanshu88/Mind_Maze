@@ -15,8 +15,8 @@ const Room = () => {
     const data = await axios.get("https://lazy-tan-shrimp-tux.cyclic.app/questions")
     setQues(data);
   }
-  console.log(text);
-  console.log(ques);
+  // console.log(text);
+  // console.log(ques);
   
   useEffect(()=>{
     getData();

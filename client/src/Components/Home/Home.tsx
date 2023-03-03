@@ -22,10 +22,8 @@ export const Home = () => {
       <div className={styles.slider_container}>
         <div className={styles.slider}>
           <div className={styles.slides}>
-
-          {/*********************************** 1st slide *****************************/}
+            {/*********************************** 1st slide *****************************/}
             <div id="slides__1" className={styles.slide}>
-
               {/************** 1st slide begin button *******************/}
               <div data-aos="zoom-in-up" className={styles.begainContainer}>
                 <img
@@ -59,9 +57,8 @@ export const Home = () => {
               ></a>
             </div>
 
-          {/*********************************** 2nd slide *****************************/}
+            {/*********************************** 2nd slide *****************************/}
             <div id="slides__2" className={styles.slide}>
-
               {/************** 2nd slide begin button *******************/}
               <div data-aos="zoom-in-up" className={styles.begainContainer}>
                 <img
@@ -97,9 +94,8 @@ export const Home = () => {
               ></a>
             </div>
 
-          {/*********************************** 3rd slide *****************************/}
+            {/*********************************** 3rd slide *****************************/}
             <div id="slides__3" className={styles.slide}>
-
               {/************** 3rd slide begin button *******************/}
               <div data-aos="zoom-in-up" className={styles.begainContainer}>
                 <img

@@ -1,16 +1,17 @@
-import { useState } from 'react'
-import './App.css'
-import Login from './Pages/login/Login'
-import Register from './Pages/register/Register'
+
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import "./App.css";
+import { Navbar } from "./Components/Navbar/Navbar";
 
 function App() {
+  const [count, setCount] = useState(0);
 
   return (
-<>
- <Register/>
- <Login/>
-</>
+    <div className="App">
+      <Navbar />
+    </div>
   )
 }
 
-export default App
+export default App;

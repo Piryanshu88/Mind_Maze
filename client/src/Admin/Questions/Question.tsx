@@ -77,21 +77,23 @@ export const Question = () => {
 
   const updatedClick = () => {
     console.log({ ...q, options: [opt1, opt2, opt3, copt1] });
-    updateQuestion(is, { ...q, options: [opt1, opt2, opt3, copt1] }).then(
-      (re) => {
+    updateQuestion(is, { ...q, options: [opt1, opt2, opt3, copt1] })
+      .then((re) => {
         toast({
           title: re.message,
           status: "success",
           isClosable: true,
           duration: 2000,
         });
-      }
-    );
-    getQuestionData()
-      .then((re: QuestionsPayload) => setQuestions(re?.data))
-      .catch((err) => {
-        console.log(err.message);
-      });
+      })
+      .then(() =>
+        getQuestionData()
+          .then((re: QuestionsPayload) => setQuestions(re?.data))
+          .catch((err) => {
+            console.log(err.message);
+          })
+      );
+
     onClose();
   };
   useEffect(() => {

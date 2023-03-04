@@ -16,9 +16,8 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import logo from "../../assets/Picsart_23-03-04_10-38-49-759.png"
-import styles from "./Navbar.module.css"
-
+import logo from "../../assets/Picsart_23-03-04_10-38-49-759.png";
+import styles from "./Navbar.module.css";
 
 function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -28,8 +27,7 @@ function Navbar() {
 
   return (
     <>
-   
-        <div
+      <div
         className={styles.container}
         // bgGradient="linear-gradient(120deg, #F6D365 0%, #FDA085 100%)"
         // px={4}
@@ -44,8 +42,8 @@ function Navbar() {
           />
           <HStack spacing={8} alignItems={"center"}>
             {/*************************** Logo *******************************/}
-            <Link to="/" className={styles.navbarlogo}  >
-              <img src={logo}/>
+            <Link to="/" className={styles.navbarlogo}>
+              <img src={logo} />
             </Link>
             <HStack
               as={"nav"}
@@ -69,33 +67,27 @@ function Navbar() {
                   variant={"link"}
                   cursor={"pointer"}
                   minW={0}
+                  onClick={() => localStorage.clear()}
                 >
                   {/**************  Avatar Url  ************/}
-                  <Avatar
+                  {/* <Avatar
                     size={"sm"}
                     src={
                       "https://github.com/shubhamkr2/UploadImages/blob/main/avatardefault_92824.png?raw=true"
                     }
-                  />
+                  /> */}
+                  {localStorage.getItem("name")}
                 </MenuButton>
-                <MenuList>
-                  <Link to="#">
-                    <MenuItem>Profile</MenuItem>
-                  </Link>
-                  <MenuDivider />
-                  <Link to="#">
-                    <MenuItem>Sign Out</MenuItem>
-                  </Link>
-                </MenuList>
               </Menu>
             ) : (
               <>
                 <Link to="/login">
-                  <button  className={styles.button9}>Login</button>
+                  <button className={styles.button9}>Login</button>
                 </Link>
                 <Link to="/register">
-                  <button  className={styles.button9}>Register</button>
-                </Link>              </>
+                  <button className={styles.button9}>Register</button>
+                </Link>{" "}
+              </>
             )}
           </Flex>
         </Flex>

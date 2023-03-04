@@ -33,7 +33,7 @@ you can also see your position in leaderboard and compete with your friends.
   <img src="https://img.shields.io/badge/Cyclic-430098?style=for-the-badge&logo=cyclic&logoColor=white" alt="cyclic" />
 </p>
 
-<h3 align="center"><a href="#"><strong>Want to see live preview »</strong></a></h3>
+<h3 align="center"><a href="https://mind-maze.netlify.app/"><strong>Want to see live preview »</strong></a></h3>
 
 ## Snapshots of the game
 

@@ -46,6 +46,7 @@
     gap: 15px;
     /* border: 1px solid black; */
     width: 180vh;
+    margin: auto;
 }
 
 .options>div{

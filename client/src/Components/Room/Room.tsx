@@ -3,6 +3,7 @@ import axios, { AxiosResponse } from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import styles from "./Room.module.css";
+import { useNavigate } from "react-router";
 import { FcCheckmark, FcHighPriority } from "react-icons/fc";
 import { getUserById, updatedUser } from "../../Admin/Redux/action";
 import { Payload } from "../../Admin/Redux/reducer";
@@ -29,6 +30,7 @@ const Room = () => {
   const [page, setPage] = useState<number>(0);
   const [ques, setQues] = useState<any>([]);
   const [points, setpoints] = useState<number>(0);
+  const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
 
   const toast = useToast();
@@ -41,7 +43,7 @@ const Room = () => {
       const val = points + 10;
       setpoints(val);
       console.log(points);
-      updatedUser(localStorage.getItem("id"), { points: points }).then((re) => {
+      updatedUser(localStorage.getItem("id"), 10).then((re) => {
         console.log(re);
         toast({
           title: `correct answer,You get 10 points`,
@@ -153,7 +155,7 @@ const Room = () => {
                 padding="20px"
                 bg={"#ffc9a5"}
                 _hover={{ bg: "blue.600", color: "white" }}
-                onClick={() => setPage(page + 1)}
+                onClick={() => navigate("/")}
               >
                 END QUIZ
               </Button>

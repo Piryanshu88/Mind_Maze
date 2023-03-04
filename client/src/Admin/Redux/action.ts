@@ -121,9 +121,9 @@ let updateQuestion = async (id: string | undefined, payload: questions) => {
 interface points {
   points: number;
 }
-const updatedUser = async (id: string | null, payload: points) => {
+const updatedUser = async (id: string | null, payload: number) => {
   const response: AxiosResponse<updateQ> = await axios.patch(
-    `https://lazy-tan-shrimp-tux.cyclic.app/user/update/${id}`,
+    `https://lazy-tan-shrimp-tux.cyclic.app/user/points/${id}?points=${payload}`,
     payload
   );
   return response.data;

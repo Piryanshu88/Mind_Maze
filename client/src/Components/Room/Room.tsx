@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import styles from "./Room.module.css";
 import { FcCheckmark, FcHighPriority } from "react-icons/fc";
-import { updatedUser } from "../../Admin/Redux/action";
+import { getUserById, updatedUser } from "../../Admin/Redux/action";
+import { Payload } from "../../Admin/Redux/reducer";
 interface options {
   opt1: string;
   check: boolean;
@@ -29,19 +30,25 @@ const Room = () => {
   const [ques, setQues] = useState<any>([]);
   const [points, setpoints] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
+
   const toast = useToast();
   let { category } = useParams();
 
   const handleClick = (check: boolean) => {
     setLoading(true);
-    if (check) {
-      // updatedUser(localStorage.getItem("id"),{mar});
 
-      toast({
-        title: `correct answer`,
-        status: "success",
-        isClosable: true,
-        duration: 2000,
+    if (check) {
+      const val = points + 10;
+      setpoints(val);
+      console.log(points);
+      updatedUser(localStorage.getItem("id"), { points: points }).then((re) => {
+        console.log(re);
+        toast({
+          title: `correct answer,You get 10 points`,
+          status: "success",
+          isClosable: true,
+          duration: 2000,
+        });
       });
     } else {
       toast({
@@ -77,6 +84,9 @@ const Room = () => {
 
   useEffect(() => {
     getData(page);
+    getUserById(localStorage.getItem("id")).then((re: any) =>
+      setpoints(re.data[0].points)
+    );
   }, [page]);
   return (
     <>

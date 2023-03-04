@@ -135,6 +135,27 @@ userRouter.patch("/update/:id", async (req, res) => {
   }
 });
 
+userRouter.patch("/points/:id", async (req, res) => {
+  const { id } = req.params;
+  const points = Number(req.query.points);
+  try {
+    const users = await UserModel.find({ _id: id });
+    await UserModel.findByIdAndUpdate(
+      { _id: id },
+      { points: users[0].points + points }
+    );
+    res.status(201).json({
+      status: "success",
+      message: "User data updated Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json({ message: "Something went wrong", status: "error" });
+  }
+});
+
 module.exports = {
   userRouter,
 };

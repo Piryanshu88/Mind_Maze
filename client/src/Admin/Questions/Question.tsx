@@ -117,7 +117,11 @@ export const Question = () => {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent
+          borderRadius={"20px"}
+          marginTop="30px"
+          background={"linear-gradient(120deg, #f6d365 0%, #fda085 100%)"}
+        >
           <ModalHeader>Update Question</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
@@ -192,10 +196,10 @@ export const Question = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button colorScheme="yellow" mr={3} onClick={onClose} color="#fff">
               Close
             </Button>
-            <Button variant="ghost" onClick={updatedClick}>
+            <Button variant="ghost" onClick={updatedClick} colorScheme="orange">
               Secondary Action
             </Button>
           </ModalFooter>

@@ -30,7 +30,7 @@ export const QuestionForm = () => {
     opt1: "",
     check: true,
   });
-  const [options, setoptions] = useState<options[]>([opt1, opt2, opt3, copt1]);
+ 
   const [questions, setQuestion] = useState<questions>({
     questionName: "",
     category: "",

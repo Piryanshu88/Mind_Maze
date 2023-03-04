@@ -89,7 +89,7 @@ export interface QuestionsPayloadById {
   totalCount?: number;
 }
 let getQuestionDataById = async (id: string | undefined) => {
-  const response: AxiosResponse<QuestionsPayloadById> = await axios(
+  const response: AxiosResponse<QuestionsPayloadById> = await axios.get(
     `https://lazy-tan-shrimp-tux.cyclic.app/questions/${id}`,
     {
       headers: {
@@ -100,4 +100,28 @@ let getQuestionDataById = async (id: string | undefined) => {
   return response.data;
 };
 
-export { getDataUser, getQuestionData, addQuestions, getQuestionDataById };
+export interface updateQ {
+  message: string;
+  status: string;
+}
+
+let updateQuestion = async (id: string | undefined, payload: questions) => {
+  const response: AxiosResponse<updateQ> = await axios.patch(
+    `https://lazy-tan-shrimp-tux.cyclic.app/questions/update/${id}`,
+    payload,
+    {
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    }
+  );
+  return response.data;
+};
+
+export {
+  getDataUser,
+  getQuestionData,
+  addQuestions,
+  getQuestionDataById,
+  updateQuestion,
+};

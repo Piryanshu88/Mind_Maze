@@ -96,7 +96,7 @@ questionRouter.get("/:id", async (req, res) => {
 questionRouter.patch("/update/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    const users = await QuestionModel.findByIdAndUpdate({ _id: id });
+    const users = await QuestionModel.findByIdAndUpdate({ _id: id }, req.body);
 
     res.status(201).json({
       status: "success",

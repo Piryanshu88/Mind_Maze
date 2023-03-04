@@ -118,8 +118,27 @@ let updateQuestion = async (id: string | undefined, payload: questions) => {
   return response.data;
 };
 
+interface points {
+  marks: number;
+}
+const updatedUser = async (id: string | undefined, payload: points) => {
+  const response: AxiosResponse<updateQ> = await axios.patch(
+    `https://lazy-tan-shrimp-tux.cyclic.app/user/update/${id}`,
+    payload
+  );
+  return response.data;
+};
+
+const getUserById = async (id: string | undefined) => {
+  const response: AxiosResponse<addQuestion> = await axios.get(
+    `https://lazy-tan-shrimp-tux.cyclic.app/user/all-users/${id}`
+  );
+  return response.data;
+};
 
 export {
+  updatedUser,
+  getUserById,
   getDataUser,
   getQuestionData,
   addQuestions,

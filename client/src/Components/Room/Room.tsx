@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import styles from "./Room.module.css";
 import { FcCheckmark, FcHighPriority } from "react-icons/fc";
+import { updatedUser } from "../../Admin/Redux/action";
 interface options {
   opt1: string;
   check: boolean;
@@ -34,9 +35,7 @@ const Room = () => {
   const handleClick = (check: boolean) => {
     setLoading(true);
     if (check) {
-
-
-      
+      // updatedUser(localStorage.getItem("id"),{mar});
 
       toast({
         title: `correct answer`,

@@ -22,7 +22,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     width:200vh;
+    
     margin:auto;
+    margin-top: 100px;
     border:2px solid rgb(255, 211, 182);
     height:90vh;
     border-radius:10px;

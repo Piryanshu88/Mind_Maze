@@ -19,6 +19,7 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import logo from "../../assets/Picsart_23-03-04_10-38-49-759.png"
 import styles from "./Navbar.module.css"
 
+
 function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isLogedIn, setIsLogedIn] = useState(
@@ -27,10 +28,11 @@ function Navbar() {
 
   return (
     <>
-      <Box
-        bgGradient="linear-gradient(120deg, #F6D365 0%, #FDA085 100%)"
-        px={4}
-        className={styles.mainContainer}
+   
+        <div
+        className={styles.container}
+        // bgGradient="linear-gradient(120deg, #F6D365 0%, #FDA085 100%)"
+        // px={4}
       >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
@@ -54,7 +56,6 @@ function Navbar() {
             >
               <Link to="/">Home</Link>
               <Link to="/leaderboard">Leaderboard</Link>
-              <Link to="/">High Score</Link>
             </HStack>
           </HStack>
 
@@ -90,12 +91,11 @@ function Navbar() {
             ) : (
               <>
                 <Link to="/login">
-                  <Button  className={styles.button9}>Sign In</Button>
+                  <button  className={styles.button9}>Login</button>
                 </Link>
                 <Link to="/register">
-                  <Button className={styles.button9}>Register</Button>
-                </Link>
-              </>
+                  <button  className={styles.button9}>Register</button>
+                </Link>              </>
             )}
           </Flex>
         </Flex>
@@ -109,7 +109,7 @@ function Navbar() {
             </Stack>
           </Box>
         ) : null}
-      </Box>
+      </div>
     </>
   );
 }

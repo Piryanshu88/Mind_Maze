@@ -1,7 +1,24 @@
 .container {
-  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-  padding-top: 40px;
+  background-image: linear-gradient( 89.9deg,  rgba(255,243,110,1) 16.9%, rgba(30,204,214,1) 55.1%, rgba(5,54,154,1) 90.7% );  margin-top: 40px;
+  animation: gradient 5s ease infinite;
+  overflow-y: hidden;
+  margin: auto;
+  background-size: 300% 300%;
+  box-shadow: 0 0 35px white;
+
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
   
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .begin {
   cursor: pointer;
@@ -9,7 +26,7 @@
 }
 .begainContainer {
   position: absolute;
-  top: 56%;
+  top: 35%;
   max-width: 250px;
 }
 .begainContainer img {
@@ -28,9 +45,12 @@
   height: 80vh;
   margin: 20px;
   text-align: center;
-  border-radius: 20px;
+  border-top-right-radius: 50px;
   overflow: hidden;
   position: relative;
+  border-bottom-left-radius: 50px;
+  box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
+
 }
 
 .slides {
@@ -48,7 +68,9 @@
   flex-shrink: 0;
   width: 100%;
   /* height: 400px; */
+
   height: 80vh;
+
 
   scroll-snap-align: center;
   margin-right: 0px;
@@ -57,6 +79,7 @@
   transform-origin: center center;
   transform: scale(1);
 }
+
 
 .slide__img {
   width: 100%;

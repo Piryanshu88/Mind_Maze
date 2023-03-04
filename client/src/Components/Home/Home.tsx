@@ -5,6 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import img1 from "../../assets/Begin black.png";
 import img2 from "../../assets/Begin green.png";
+import background from "../../assets/background.gif";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
@@ -48,7 +49,7 @@ export const Home = () => {
 
               <img
                 className={styles.slide__img}
-                src="https://v5j9q4b5.rocketcdn.me/wp-content/uploads/2017/12/capa-18-1024x576.jpg.webp"
+                src={background}
               />
               <span className={styles.slide__text}>Let's Play Anime Quiz</span>
               <a
@@ -81,7 +82,7 @@ export const Home = () => {
 
               <img
                 className={styles.slide__img}
-                src="https://t4.ftcdn.net/jpg/03/45/88/07/360_F_345880772_zIT2mkdCzTthplO7xqaGGrMspN0jw0ll.jpg"
+                src={background}
               />
               <span className={styles.slide__text}>
                 Let's Play ........ Quiz
@@ -114,7 +115,7 @@ export const Home = () => {
 
               <img
                 className={styles.slide__img}
-                src="https://t4.ftcdn.net/jpg/03/45/88/07/360_F_345880772_zIT2mkdCzTthplO7xqaGGrMspN0jw0ll.jpg"
+                src={background}
               />
               <span className={styles.slide__text}>
                 Let's Play ........ Quiz

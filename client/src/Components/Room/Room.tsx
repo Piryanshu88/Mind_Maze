@@ -94,8 +94,20 @@ const Room = () => {
     <>
       <Box className={styles.main}>
         <Box className={styles.mainbox}>
-          <Box mt="10px" bg="yellow.200" w="5%" ml="95%" borderRadius={"10px"}>
-            <Text textAlign={"center"} fontWeight="bold">
+          <Box
+            mt="10px"
+            bg="yellow.200"
+            w="5%"
+            ml="95%"
+            borderRadius={"10px"}
+            position="relative"
+          >
+            <Text
+              textAlign={"center"}
+              fontWeight="bold"
+              position={"absolute"}
+              top="10px"
+            >
               {page + 1}/{ques.totalCount}
             </Text>
           </Box>

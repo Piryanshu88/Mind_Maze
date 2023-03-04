@@ -16,7 +16,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import logo from "../../assets/Picsart_23-03-04_10-38-49-759.png";
+import logo from "../../../public/logo.png";
 import styles from "./Navbar.module.css";
 
 function Navbar() {

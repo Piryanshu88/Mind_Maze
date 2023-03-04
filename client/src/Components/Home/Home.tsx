@@ -4,7 +4,7 @@ import { Center, Heading } from "@chakra-ui/react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import img1 from "../../assets/Begin black.png";
-import logo from "../../assets/Picsart_23-03-04_10-38-49-759.png";
+import logo from "../../../public/logo.png";
 
 import img2 from "../../assets/Begin green.png";
 import background from "../../assets/background.gif";

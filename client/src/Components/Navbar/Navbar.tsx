@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import styles from "../Navbar/Navbar.module.css"
 import {
   Box,
   Flex,
@@ -25,9 +26,10 @@ function Navbar() {
 
   return (
     <>
-      <Box
-        bgGradient="linear-gradient(120deg, #F6D365 0%, #FDA085 100%)"
-        px={4}
+      <div
+        className={styles.container}
+        // bgGradient="linear-gradient(120deg, #F6D365 0%, #FDA085 100%)"
+        // px={4}
       >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
@@ -104,7 +106,7 @@ function Navbar() {
             </Stack>
           </Box>
         ) : null}
-      </Box>
+      </div>
     </>
   );
 }

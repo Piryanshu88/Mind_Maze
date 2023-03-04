@@ -6,29 +6,79 @@ import {
   Input,
   InputGroup,
   Select,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { addQuestion, addQuestions, options, questions } from "../Redux/action";
 
 export const QuestionForm = () => {
-  const [options, setoptions] = useState();
-  
-  const [opt1, setopt1] = useState({
-    opt: "",
-    checked: false,
+  const toast = useToast();
+
+  const [opt1, setopt1] = useState<options>({
+    opt1: "",
+    check: false,
   });
-  const [questions, setQuestion] = useState({
+  const [opt3, setopt3] = useState<options>({
+    opt1: "",
+    check: false,
+  });
+  const [opt2, setopt2] = useState<options>({
+    opt1: "",
+    check: false,
+  });
+  const [copt1, setCopt1] = useState<options>({
+    opt1: "",
+    check: true,
+  });
+ 
+  const [questions, setQuestion] = useState<questions>({
     questionName: "",
     category: "",
     level: "",
-    options: options,
-    marks: 0,
+    options: [opt1, opt2, opt3, copt1],
+    marks: 10,
   });
-  const handleClick = () => {};
+  const handleClick = () => {
+    //setoptions([opt1, opt2, opt3, copt1]);
+    if (
+      questions.category &&
+      questions.questionName &&
+      questions.level &&
+      questions.options &&
+      questions.marks &&
+      opt1.opt1 &&
+      opt2.opt1 &&
+      opt3.opt1 &&
+      copt1.opt1
+    ) {
+      setTimeout(() => {
+        addQuestions({ ...questions, options: [opt1, opt2, opt3, copt1] }).then(
+          (re: addQuestion) =>
+            toast({
+              title: re?.data,
+              status: "success",
+              isClosable: true,
+              duration: 3000,
+            })
+        );
+      }, 2000);
+    } else {
+      toast({
+        title: `Please fill all the credentials`,
+        status: "error",
+        isClosable: true,
+        duration: 3000,
+      });
+    }
+  };
 
   return (
     <div>
-      <FormControl onSubmit={handleClick}  >
+      <FormControl>
         <Input
+          onChange={(e) =>
+            setQuestion({ ...questions, questionName: e.target.value })
+          }
           type="text"
           variant={"flushed"}
           placeholder="Question here"
@@ -36,6 +86,9 @@ export const QuestionForm = () => {
           value={questions.questionName}
         />
         <Select
+          onChange={(e) =>
+            setQuestion({ ...questions, category: e.target.value })
+          }
           marginBottom={"20px"}
           placeholder="Select Category"
           variant={"flushed"}
@@ -47,6 +100,7 @@ export const QuestionForm = () => {
           <option value="gk">General knowledge</option>
         </Select>
         <Select
+          onChange={(e) => setQuestion({ ...questions, level: e.target.value })}
           value={questions.level}
           marginBottom={"20px"}
           placeholder="Select level"
@@ -59,18 +113,21 @@ export const QuestionForm = () => {
         </Select>
         <InputGroup>
           <Input
+            onChange={(e) => setopt1({ ...opt1, opt1: e.target.value })}
             type="text"
             variant={"flushed"}
             placeholder="Options here"
             marginBottom={"20px"}
           />
           <Input
+            onChange={(e) => setopt2({ ...opt2, opt1: e.target.value })}
             type="text"
             variant={"flushed"}
             placeholder="Options here"
             marginBottom={"20px"}
           />
           <Input
+            onChange={(e) => setopt3({ ...opt3, opt1: e.target.value })}
             type="text"
             variant={"flushed"}
             placeholder="Options here"
@@ -80,17 +137,12 @@ export const QuestionForm = () => {
         <Input
           type="text"
           variant={"flushed"}
+          onChange={(e) => setCopt1({ ...copt1, opt1: e.target.value })}
           placeholder="Correct Option"
           marginBottom={"20px"}
         />
-        <Input
-          type="number"
-          value={questions.marks}
-          variant={"flushed"}
-          placeholder="Points"
-          marginBottom={"20px"}
-        />
-        <Button colorScheme="orange" width={"100%"} type="submit">
+
+        <Button colorScheme="orange" width={"100%"} onClick={handleClick}>
           Submit
         </Button>
       </FormControl>

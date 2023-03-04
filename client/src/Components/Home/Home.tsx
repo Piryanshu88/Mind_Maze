@@ -7,6 +7,7 @@ import img1 from "../../assets/Begin black.png";
 import logo from "../../assets/Picsart_23-03-04_10-38-49-759.png"
 
 import img2 from "../../assets/Begin green.png";
+import background from "../../assets/background.gif";
 import { Link } from "react-router-dom";
 export const Home = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -51,7 +52,9 @@ export const Home = () => {
 
               <img
                 className={styles.slide__img}
+
                 src="https://i.pinimg.com/originals/3d/61/70/3d6170a162644f29b5695d5bad02adbf.png"
+
               />
               <a
                 className={styles.slide__prev}
@@ -85,6 +88,9 @@ export const Home = () => {
               <img
                 className={styles.slide__img}
                 src="https://cdn.pixabay.com/photo/2019/10/15/12/04/office-4551450_960_720.jpg"
+
+          
+
               />
               
               <a
@@ -116,7 +122,11 @@ export const Home = () => {
 
               <img
                 className={styles.slide__img}
+
                 src="https://media2.giphy.com/media/1rPY8XIGWozEhm215a/giphy.gif?cid=ecf05e47np0l93mo2md9u8vyrzqmw2h3sca85i580xtbg41z&rid=giphy.gif&ct=g"
+
+                
+
               />
         
               <a

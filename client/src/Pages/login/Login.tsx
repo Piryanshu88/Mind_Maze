@@ -123,7 +123,12 @@ const Login = () => {
             DON'T HAVE AN ACCOUNT ?
           </p>
           <br />
-          <button className={styles.buttonOlogin}>REGISTER</button>
+          <button
+            className={styles.buttonOlogin}
+            onClick={() => Navigate("/register")}
+          >
+            REGISTER
+          </button>
         </div>
       </div>
     </>

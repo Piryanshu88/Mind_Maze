@@ -7,7 +7,7 @@ import { QuestionForm } from "./Questions/QuestionForm";
 import { User } from "./Users/User";
 import { FiUsers } from "react-icons/fi";
 import { BiBook, BiBookAdd } from "react-icons/bi";
-
+import AOS from "aos";
 import "aos/dist/aos.css";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 export const Admin = () => {
@@ -24,13 +24,13 @@ export const Admin = () => {
         return <About />;
     }
   };
-  //   useEffect(() => {
-  //     AOS.init({ delay: 500 });
-  //   }, []);
+  useEffect(() => {
+    AOS.init({ delay: 10 });
+  }, []);
   return (
     <div className={styles.admin}>
       <div className={styles.admin_box}>
-        <div className={styles.admin_box_left}>
+        <div className={styles.admin_box_left} data-aos="fade-left">
           <Flex
             onClick={() => setActiveTab("users")}
             boxShadow={

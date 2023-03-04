@@ -82,4 +82,22 @@ const addQuestions = async (payload: questions) => {
   return response.data;
 };
 
-export { getDataUser, getQuestionData, addQuestions };
+export interface QuestionsPayloadById {
+  data: questions[];
+  status: string;
+
+  totalCount?: number;
+}
+let getQuestionDataById = async (id: string | undefined) => {
+  const response: AxiosResponse<QuestionsPayloadById> = await axios(
+    `https://lazy-tan-shrimp-tux.cyclic.app/questions/${id}`,
+    {
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+    }
+  );
+  return response.data;
+};
+
+export { getDataUser, getQuestionData, addQuestions, getQuestionDataById };

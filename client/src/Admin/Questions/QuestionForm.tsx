@@ -52,7 +52,6 @@ export const QuestionForm = () => {
       copt1.opt1
     ) {
       setTimeout(() => {
-        console.log({ ...questions, options: [opt1, opt2, opt3, copt1] });
         addQuestions({ ...questions, options: [opt1, opt2, opt3, copt1] }).then(
           (re: addQuestion) =>
             toast({

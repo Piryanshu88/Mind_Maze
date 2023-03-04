@@ -24,7 +24,6 @@ const Leaderboard = () => {
     );
     setQues(response.data.data.sort((a: any, b: any) => b.points - a.points));
   };
-  console.log(ques);
 
   useEffect(() => {
     getData();

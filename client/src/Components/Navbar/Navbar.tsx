@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -67,7 +67,10 @@ function Navbar() {
                   variant={"link"}
                   cursor={"pointer"}
                   minW={0}
-                  onClick={() => localStorage.clear()}
+                  onClick={() => {
+                    localStorage.clear();
+                    window.location.reload();
+                  }}
                 >
                   {/**************  Avatar Url  ************/}
                   {/* <Avatar

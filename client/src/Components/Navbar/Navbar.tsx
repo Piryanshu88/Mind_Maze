@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "../Navbar/Navbar.module.css"
 import {
   Box,
   Flex,
@@ -17,6 +16,9 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import logo from "../../assets/Picsart_23-03-04_10-38-49-759.png"
+import styles from "./Navbar.module.css"
+
 
 function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -26,7 +28,8 @@ function Navbar() {
 
   return (
     <>
-      <div
+   
+        <div
         className={styles.container}
         // bgGradient="linear-gradient(120deg, #F6D365 0%, #FDA085 100%)"
         // px={4}
@@ -41,7 +44,9 @@ function Navbar() {
           />
           <HStack spacing={8} alignItems={"center"}>
             {/*************************** Logo *******************************/}
-            <Link to="/">Logo</Link>
+            <Link to="/" className={styles.navbarlogo}  >
+              <img src={logo}/>
+            </Link>
             <HStack
               as={"nav"}
               spacing={4}
@@ -51,7 +56,6 @@ function Navbar() {
             >
               <Link to="/">Home</Link>
               <Link to="/leaderboard">Leaderboard</Link>
-              <Link to="/">High Score</Link>
             </HStack>
           </HStack>
 
@@ -87,12 +91,11 @@ function Navbar() {
             ) : (
               <>
                 <Link to="/login">
-                  <Button>Sign In</Button>
+                  <button  className={styles.button9}>Login</button>
                 </Link>
                 <Link to="/register">
-                  <Button ml="5px">Register</Button>
-                </Link>
-              </>
+                  <button  className={styles.button9}>Register</button>
+                </Link>              </>
             )}
           </Flex>
         </Flex>

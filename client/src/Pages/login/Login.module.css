@@ -71,8 +71,9 @@ transition: 0.6s;
 }
 .impcontainer{
  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,209,67,1) 0%, rgba(255,145,83,1) 90% );    width: 100%;
-margin-top: -10px;
-padding-top: 2em;
+ padding-top: 2em;
+ padding-bottom: 10em;
+ margin-top: 3em;
 padding-bottom: 10em;
 }
 .cover{

@@ -4,9 +4,10 @@ import { Center, Heading } from "@chakra-ui/react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import img1 from "../../assets/Begin black.png";
+import logo from "../../assets/Picsart_23-03-04_10-38-49-759.png"
+
 import img2 from "../../assets/Begin green.png";
 import { Link } from "react-router-dom";
-
 export const Home = () => {
   const [isHovering, setIsHovering] = useState(false);
 
@@ -23,7 +24,7 @@ export const Home = () => {
   };
   return (
     <div className={styles.container}>
-      <Heading style={{ textAlign: "center" }}>Welcome to Game Name</Heading>
+      <Heading style={{ textAlign: "center" , marginTop:"2em", fontWeight:"lighter"}}>WELCOME TO <img src={logo } style={{width:"20%", margin:"auto"}}/></Heading>
 
       {/* slider */}
       <div className={styles.slider_container}>

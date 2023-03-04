@@ -16,6 +16,8 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import logo from "../../assets/Picsart_23-03-04_10-38-49-759.png"
+import styles from "./Navbar.module.css"
 
 function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -28,6 +30,7 @@ function Navbar() {
       <Box
         bgGradient="linear-gradient(120deg, #F6D365 0%, #FDA085 100%)"
         px={4}
+        className={styles.mainContainer}
       >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <IconButton
@@ -39,7 +42,9 @@ function Navbar() {
           />
           <HStack spacing={8} alignItems={"center"}>
             {/*************************** Logo *******************************/}
-            <Link to="/">Logo</Link>
+            <Link to="/" className={styles.navbarlogo}  >
+              <img src={logo}/>
+            </Link>
             <HStack
               as={"nav"}
               spacing={4}
@@ -85,10 +90,10 @@ function Navbar() {
             ) : (
               <>
                 <Link to="/login">
-                  <Button>Sign In</Button>
+                  <Button  className={styles.button9}>Sign In</Button>
                 </Link>
                 <Link to="/register">
-                  <Button ml="5px">Register</Button>
+                  <Button className={styles.button9}>Register</Button>
                 </Link>
               </>
             )}

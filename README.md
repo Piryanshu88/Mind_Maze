@@ -1,5 +1,7 @@
 # Mind Maze
 
+
+
 In this game, you will be presented with a series of questions ranging
 from anime and education to general knowledge. The questions
 will be multiple choice, and you will have to choose an option and for every correct option ,you get 10 points
